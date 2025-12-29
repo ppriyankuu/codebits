@@ -20,7 +20,7 @@ export default async function SnippetPage({ params }: PageProps) {
         <main className="max-w-4xl mx-auto py-8 px-4 space-y-4">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-xs">
                 <div className="flex flex-wrap items-center gap-2">
-                    <h1 className="text-sm font-semibold">Snippet: {snippet.slug}</h1>
+                    <h1 className="text-sm md:text-lg font-semibold">Snippet: {snippet.slug}</h1>
                     <CopyButton
                         text={`https://codebits-dempho.vercel.app/${snippet.slug}`}
                         url_or_code="URL"

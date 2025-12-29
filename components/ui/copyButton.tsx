@@ -18,12 +18,12 @@ export function CopyButton({ url_or_code, text }: CopyButtonProps) {
     };
 
     const base =
-        "rounded-md text-xs sm:text-sm transition whitespace-nowrap";
+        "rounded-md lg:text-sm transition whitespace-nowrap";
 
     const variant =
         url_or_code === 'snippet'
-            ? "w-full sm:w-auto px-4 py-2 sm:py-1 bg-neutral-800 hover:bg-neutral-700"
-            : "px-3 py-1 border hover:bg-neutral-800";
+            ? "w-full sm:w-auto px-4 py-2 sm:py-1 text-sm bg-neutral-800 hover:bg-neutral-700"
+            : "px-3 py-1 border hover:bg-neutral-800 text-xs";
 
     return (
         <button

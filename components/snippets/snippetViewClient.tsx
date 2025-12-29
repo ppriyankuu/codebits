@@ -96,9 +96,9 @@ export function SnippetViewClient({
                 readOnly={!canEdit}
             />
 
-            {canEdit && (
-                <div className="flex flex-col sm:flex-row sm:justify-end gap-2 sm:gap-3 w-full">
-                    <CopyButton text={code} url_or_code="snippet" />
+            <div className="flex flex-col sm:flex-row sm:justify-end gap-2 sm:gap-3 w-full">
+                <CopyButton text={code} url_or_code="snippet" />
+                {canEdit && (
 
                     <button
                         onClick={saveCode}
@@ -107,8 +107,9 @@ export function SnippetViewClient({
                     >
                         Save changes
                     </button>
-                </div>
-            )}
+                )}
+            </div>
+
         </div>
     )
 }
