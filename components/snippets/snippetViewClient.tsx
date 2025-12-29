@@ -64,21 +64,25 @@ export function SnippetViewClient({
 
     return (
         <div className="space-y-3">
-            <div className="flex items-center justify-between text-xs">
-                <div className="flex gap-2 items-center">
-                    <CopyButton text={code} />
-                    {saving && <span className="text-neutral-500">Saving...</span>}
-                    {message && <span className="text-neutral-400">{message}</span>}
+            <div className="flex items-start justify-between gap-2 text-xs">
+                <div className="flex flex-wrap items-center gap-2 min-w-0">
+                    {saving && <span className="text-neutral-500 whitespace-nowrap">Saving...</span>}
+                    {message && (
+                        <span className="text-neutral-400 truncate max-w-[200px] sm:max-w-none">
+                            {message}
+                        </span>
+                    )}
                 </div>
 
-                <div className="flex gap-2 items-center">
-                    <span className="text-neutral-500">
+                <div className="flex flex-wrap items-center gap-2 justify-end text-right">
+                    <span className="text-neutral-500 whitespace-nowrap">
                         Mode: {isReadonly ? 'Read-only' : 'Editable'}
                     </span>
+
                     {isOwner && (
                         <button
                             onClick={toggleReadOnly}
-                            className="px-2 py-1 border rounded hover:bg-neutral-800"
+                            className="px-2 py-1 border rounded hover:bg-neutral-800 whitespace-nowrap"
                         >
                             {isReadonly ? 'Allow edits' : 'Set read-only'}
                         </button>
@@ -93,11 +97,13 @@ export function SnippetViewClient({
             />
 
             {canEdit && (
-                <div className="flex justify-end">
+                <div className="flex flex-col sm:flex-row sm:justify-end gap-2 sm:gap-3 w-full">
+                    <CopyButton text={code} url_or_code="snippet" />
+
                     <button
                         onClick={saveCode}
                         disabled={saving}
-                        className="px-4 py-1 text-xs rounded-md bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50"
+                        className="w-full sm:w-auto px-4 py-2 sm:py-1 text-xs sm:text-sm rounded-md bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50"
                     >
                         Save changes
                     </button>
